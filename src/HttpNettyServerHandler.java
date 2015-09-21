@@ -175,8 +175,7 @@ public class HttpNettyServerHandler extends ChannelDuplexHandler {
         });
     }
 
-    //- счетчик запросов на каждый IP в виде таблицы с колонкам и IP,
-    //    кол-во запросов, время последнего запроса
+
     static void countersOfIP(StringBuilder buf) {
 //        buf.append("Requests per IP:<br>");
         buf.append("<TABLE border=\"1\">");
@@ -200,8 +199,8 @@ public class HttpNettyServerHandler extends ChannelDuplexHandler {
         buf.append("<caption>Redirects info table</caption><br>");
         buf.append("<TR><td align=\"center\">URL</td> <td align=\"center\">Count </td></TR><br>");
 
-        for (Enumeration<String> e = REDIRECTS_PER_URL.keys(); e.hasMoreElements(); ) {
-            String url = e.nextElement();
+        for (Enumeration<String> enumeration = REDIRECTS_PER_URL.keys(); enumeration.hasMoreElements(); ) {
+            String url = enumeration.nextElement();
             buf.append(String.format("<tr><td>%s</td> <td align=\"center\">%d </td></tr><br>", url, REDIRECTS_PER_URL.get(url).get()));
         }
         buf.append("</TABLE>");

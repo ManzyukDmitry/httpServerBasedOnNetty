@@ -28,8 +28,8 @@ public class StatisticsOfConnections {
     }
 
     public void setValues(Long receivedBytes, Long sentBytes, Long duration) {
-        this.sentBytes += sentBytes;
         this.receivedBytes += receivedBytes;
+        this.sentBytes += sentBytes;
         this.duration += duration;
     }
 
@@ -38,6 +38,6 @@ public class StatisticsOfConnections {
     }
 
     public String getTable() {
-        return String.format("<tr><td>%s</td><td>%s</td><td>%s</td><td>%d</td><td>%d</td><td>%.2f</td></tr>", ip, uri, new Date(currentTime).toString(), sentBytes, receivedBytes, getSpeed().doubleValue());
+        return String.format("<tr><td>%s</td><td>%s</td><td>%s</td><td>%d</td><td>%d</td><td>%.2f</td></tr>", ip, uri, new Date(currentTime).toString(), sentBytes, receivedBytes, getSpeed());
     }
 }
